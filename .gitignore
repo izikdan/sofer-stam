@@ -36,7 +36,7 @@ node_modules
 public
 .firebaserc
 firebase.json
-my_website\lib\firebase_options.dart
+lib/firebase_options.dart
 .metadata
 # Symbolication related
 app.*.symbols
