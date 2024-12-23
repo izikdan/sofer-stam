@@ -38,12 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> refreshData() async {
     await Future.delayed(const Duration(seconds: 2));
     setState(() {});
-    // Navigator.pushAndRemoveUntil(
-    //     context,
-    //     MaterialPageRoute(
-    //         builder: (context) => const MyHomePage(title: '',
-                  
-    //             )),(route)=> true );
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const MyHomePage(title: '',
+
+                )),(route)=> true );
   }
 
   void _launchURL(String url) async {
@@ -105,9 +105,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 toolbarHeight: 250,
               ),
               Expanded(
-                  child: Center(
-                child: SingleChildScrollView(
-                    child: Wrap(
+                  child:  Center(
+                     child:
+                 SingleChildScrollView(
+                 child:  Column(children: [
+                     Wrap(
                   alignment: WrapAlignment.center,
                   runSpacing: 10,
                   spacing: 10,
@@ -127,29 +129,40 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                         },
                         child: Container(
-                          margin: const EdgeInsets.all(2),
-                          width: 230,
-                          height: 250,
-                          color: const Color.fromARGB(80, 72, 22, 81),
-                          child: Row(children: [
-                            Expanded(
-                              child: Text(
-                                texts[index],
-                                textAlign: TextAlign.center,
-                                textDirection: TextDirection.rtl,
-                                style: const TextStyle(
-                                    color: Color.fromARGB(255, 55, 57, 100),
-                                    fontSize: 16),
-                              ),
-                            )
-                            //  , const btn(),
-                          ]),
-                        ),
+                            margin: const EdgeInsets.all(2),
+                            width: 230,
+                            height: 250,
+                            color: const Color.fromARGB(80, 72, 22, 81),
+                            child:
+                                Row(children: [
+                                  Expanded(
+                                    child: Text(
+                                      texts[index],
+                                      textAlign: TextAlign.center,
+                                      textDirection: TextDirection.rtl,
+                                      style: const TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 55, 57, 100),
+                                          fontSize: 16),
+                                    ),
+                                  )
+                                ]),
+                                
+                              
+                            ),
                       );
                     },
                   ),
-                )),
-              ))
+                ),const Text(
+      '?רוצים לתת מתנה יחודית לבן/בת הזוג \n ?רוצים להפתיע את יקירכם במתנה יחודית \n ?יש לכם רעיון לברכה יחודית \n .אצלי ניתן להזמין כל דבר על קלף בכתיבת ספר תורה \n .שירות אדיב, מחירים טובים \n צרו קשר בטלפון או בווצאפ',
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: Color.fromARGB(255, 55, 57, 100),
+        fontSize: 25,
+      ),
+    ),],)),
+                
+            )),
             ]),
           ])),
       bottomNavigationBar: BottomAppBar(
@@ -158,10 +171,9 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {
               _launchURL('tel: 0507444406');
             },
-            icon: const Icon(Icons.phone),
+            icon: const Icon(FontAwesomeIcons.phone),
             tooltip: '0507444406',
           ),
-          // const SelectableText('0507444406'),
           IconButton(
             onPressed: () {
               _launchURL('https://wa.me/+972507444406');
